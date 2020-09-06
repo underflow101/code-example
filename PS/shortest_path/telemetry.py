@@ -4,7 +4,7 @@
 import sys
 from collections import deque
 from heapq import heappush, heappop
-#input = sys.stdin.readline
+input = sys.stdin.readline
 INF = int(1e9)
 
 n, m, start = map(int, input().split())
