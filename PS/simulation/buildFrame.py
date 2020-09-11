@@ -10,7 +10,7 @@ INF = int(1e9)
 def possible(ans):
     for x, y, stuff in ans:
         if stuff == 0:
-            if y == 0 or [x-1, y-1] in ans or [x, y, 1] in ans or [x, y-1, 0] in ans:
+            if y == 0 or [x-1, y, 1] in ans or [x, y, 1] in ans or [x, y-1, 0] in ans:
                 continue
             return False
         elif stuff == 1:
