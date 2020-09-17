@@ -25,3 +25,6 @@ def solution(s):
         ans = min(ans, len(compressed))
 
     return ans
+
+s = 'aabbaccccca'
+print(solution(s))
