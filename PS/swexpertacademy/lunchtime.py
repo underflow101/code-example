@@ -48,7 +48,7 @@ for _ in range(T):
             s2.append(p[i])
     s1 = deque(sorted(s1, key=lambda x: x[3]))
     s2 = deque(sorted(s2, key=lambda x: x[3]))
-
+    
     time1 = 0
     stair1 = s[0][2]
     cnt = 0
@@ -92,8 +92,8 @@ for _ in range(T):
                 cnt -= 1
         ptmp.append(now)
     time2 = now
-
-    real_ans.append(min(time1, time2))
+    
+    real_ans.append(max(time1, time2))
 
 for i in range(1, len(real_ans)+1):
     print("#", end='')
