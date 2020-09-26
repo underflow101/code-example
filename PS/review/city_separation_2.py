@@ -2,14 +2,11 @@
 # book p.300
 
 import sys
-from collections import deque
-from heapq import heappush, heappop
 input = sys.stdin.readline
-INF = int(1e9)
 
 def find_parent(parent, x):
     if parent[x] != x:
-        return find_parent(parent, parent[x])
+        parent[x] = find_parent(parent, parent[x])
     return parent[x]
 
 def union_parent(parent, a, b):
@@ -19,7 +16,7 @@ def union_parent(parent, a, b):
         parent[b] = a
     else:
         parent[a] = b
-        
+
 v, e = map(int, input().split())
 parent = [0] * (v+1)
 
@@ -42,5 +39,5 @@ for edge in edges:
         union_parent(parent, a, b)
         res += cost
         last = cost
-
+        
 print(res - last)

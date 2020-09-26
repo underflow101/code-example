@@ -1,6 +1,3 @@
-# city_separation.py
-# book p.300
-
 import sys
 from collections import deque
 from heapq import heappush, heappop
@@ -9,7 +6,7 @@ INF = int(1e9)
 
 def find_parent(parent, x):
     if parent[x] != x:
-        return find_parent(parent, parent[x])
+        parent[x] = find_parent(parent, parent[x])
     return parent[x]
 
 def union_parent(parent, a, b):
