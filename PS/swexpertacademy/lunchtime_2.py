@@ -2,7 +2,7 @@
 # Samsung SW Expert Academy
 # https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV5-BEE6AK0DFAVl
 
-def Calculation(stair_list, stair):
+def calc(stair_list, stair):
     count, d_count = 0, 0
     delete_queue = []
     while stair_list or delete_queue or d_count:
@@ -34,7 +34,7 @@ def dfs(idx):
                 stair_list1.append(Peoples[i][0])
             else:
                 stair_list2.append(Peoples[i][1])
-        count = max(Calculation(sorted(stair_list1), Stairs[0]), Calculation(sorted(stair_list2), Stairs[1]))
+        count = max(calc(sorted(stair_list1), Stairs[0]), calc(sorted(stair_list2), Stairs[1]))
         min_count = min(count, min_count)
         return
     check[idx] = False
