@@ -16,13 +16,8 @@ for i in range(n):
 op = list(map(int, input().split()))
 
 dice = [0] * 6
-now = 0
-
-def top(dice, now):
-    if now > 1:
-        return dice[now-2]
-    else:
-        return dice[now+2]
+top = 0
+bot = 5
 
 for i in range(k):
     nx = x + dx[op[i]-1]
@@ -33,3 +28,19 @@ for i in range(k):
     else:
         if op[i] == 1:
             dice[0], dice[2], dice[3], dice[5] = dice[3], dice[0], dice[5], dice[2]
+        elif op[i] == 2:
+            dice[0], dice[2], dice[3], dice[5] = dice[2], dice[5], dice[0], dice[3]
+        elif op[i] == 3:
+            dice[0], dice[1], dice[4], dice[5] = dice[4], dice[0], dice[5], dice[1]
+        elif op[i] == 4:
+            dice[0], dice[1], dice[4], dice[5] = dice[1], dice[5], dice[0], dice[4]
+
+        if A[nx][ny] == 0:
+            A[nx][ny] = dice[bot]
+            print(dice[top])
+        else:
+            dice[bot] = A[nx][ny]
+            A[nx][ny] = 0
+            print(dice[top])
+
+        x, y = nx, ny
