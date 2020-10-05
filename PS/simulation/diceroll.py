@@ -32,4 +32,4 @@ for i in range(k):
         continue
     else:
         if op[i] == 1:
-            
+            dice[0], dice[2], dice[3], dice[5] = dice[3], dice[0], dice[5], dice[2]
