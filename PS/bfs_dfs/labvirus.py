@@ -18,8 +18,7 @@ def dfs_virus(x, y):
     for i in range(4):
         nx = x + dx[i]
         ny = y + dy[i]
-        if nx >= 0 and nx < n and ny >= 0 and ny < m:
-        #if 0 <= nx < n and 0 <= ny < m:
+        if 0 <= nx < n and 0 <= ny < m:
             if tmp[nx][ny] == 0:
                 tmp[nx][ny] = 2
                 dfs_virus(nx, ny)
