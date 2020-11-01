@@ -6,9 +6,10 @@ input = sys.stdin.readline
 
 def dfs(graph, v, visited):
     visited[v] = True
-    print(v, end=' ')
+    #print(v, end=' ')
     
     for i in graph[v]:
+        print(i)
         if not visited[i]:
             dfs(graph, i, visited)
 
