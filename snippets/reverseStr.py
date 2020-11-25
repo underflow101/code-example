@@ -1,2 +1,2 @@
-def reverseStr(self, s: Str) -> None:
+def reverseStr(self, s: str) -> None:
     s[:] = s[::-1]
