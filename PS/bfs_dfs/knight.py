@@ -6,10 +6,9 @@ from collections import deque
 dx = (-1, -2, -2, -1, 1, 2, 2, 1)
 dy = (-2, -1, 1, 2, -2, -1, 1, 2)
 
-def bfs(x, y, n):
+def bfs(chess, x, y, n):
     q = deque()
     q.append((x, y))
-    cnt = 0
     
     while q:
         x, y = q.popleft()
@@ -20,10 +19,9 @@ def bfs(x, y, n):
             if nx < 0 or ny < 0 or nx >= n or ny >= n:
                 continue
             if chess[nx][ny] == -1:
-                return cnt
+                return chess[x][y]+1
             if chess[nx][ny] == 0:
                 chess[nx][ny] = chess[x][y] + 1
-                cnt = chess[nx][ny]
                 q.append((nx, ny))
 
 def init_chess(n, ax, ay):
@@ -44,7 +42,7 @@ for _ in range(T):
         continue
     
     chess = init_chess(n, ax, ay)
-    res.append(bfs(x, y, n))
+    res.append(bfs(chess, x, y, n))
 
 for i in range(len(res)):
     print(res[i])
