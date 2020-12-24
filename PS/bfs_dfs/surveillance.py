@@ -1,6 +1,5 @@
 # BOJ 15683
 # surveillance
-from copy import deepcopy
 
 dx = (0, 1, 0, -1)
 dy = (1, 0, -1, 0)
@@ -25,11 +24,11 @@ for i in range(n):
     
 res = 1e9
 
-def safe(tmp2):
+def safe():
     score = 0
     for i in range(n):
         for j in range(m):
-            if tmp2[i][j] == 0:
+            if tmp[i][j] == 0:
                 score += 1
     return score
 
@@ -44,7 +43,7 @@ def surveil(x, y, d):
             ny += dy[i]
             if 0 <= nx < n and 0 <= ny < m:
                 if tmp[nx][ny] == 0:
-                    tmp[nx][ny] = -1
+                    tmp[nx][ny] = 7
                 elif tmp[nx][ny] == 6:
                     break
             else:
@@ -54,15 +53,25 @@ def dfs(cnt, office_now):
     global res
     
     if cnt == total_cctv:
-        tmp = deepcopy(office_now)
-        res = min(res, safe(tmp))
+        res = min(res, safe())
         print("res:", res)
+        for i in range(n):
+            for j in range(m):
+                tmp[i][j] = office[i][j]
         return
     x, y = cctv[cnt]
     for d in dir[office[x][y]]:
         # print("dir:", dir[office[x][y]], ", d:", d)
         surveil(x, y, d)
-        dfs(cnt+1, office_now)
+        print_office()
+        dfs(cnt+1, tmp)
+        for i in range(n):
+            for j in range(m):
+                tmp[i][j] = office_now[i][j]
+
+def print_office():
+    for i in range(n):
+        print(tmp[i])
 
 dfs(0, office)
 print(res)
