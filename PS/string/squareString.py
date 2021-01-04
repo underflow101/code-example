@@ -7,7 +7,7 @@ input = sys.stdin.readline
 def solution(s):
   res = 1
 
-  for i in range(len(s)):
+  for i in range(len(s)//2):
     if len(s) % (i+1) == 0:
       if not i:
         prev = s[0]
