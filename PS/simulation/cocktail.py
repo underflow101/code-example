@@ -11,3 +11,8 @@ for i in range(n-1):
 
 for i in range(n):
     print(ing[i])
+
+for i in range(n):
+    for j in range(n):
+        if ing[i][j] != int(ing[i][j]):
+            ing[i][j]
