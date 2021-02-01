@@ -30,7 +30,7 @@ def check(s):
                         if i == len(s) - 1:
                             return True
                         else:
-                            
+                            return False
                     
 
 T = int(input())
