@@ -3,7 +3,7 @@
 
 import sys
 input = sys.stdin.readline
-sys.setrecursionlimit(1000000000)
+sys.setrecursionlimit(100000)
 
 n = int(input())
 num = list(map(int, input().split()))
