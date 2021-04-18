@@ -7,3 +7,4 @@ dy = (0, 1, 0, -1)
 n = int(input())
 maze = [list(input().split()) for _ in range(n)]
 
+def 
